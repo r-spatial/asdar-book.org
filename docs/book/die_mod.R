@@ -237,7 +237,7 @@ proj4string(meuse.grid) <- CRS(paste("+init=epsg:28992",
  "+towgs84=565.237,50.0087,465.658,-0.406857,0.350733,-1.87035,4.0812"))
 data(meuse)
 coordinates(meuse) <- c("x", "y")
-proj4string(meuse) <- CRS(proj4string(meuse.grid))
+proj4string(meuse) <- slot(meuse.grid, "proj4string")
 
 
 ###################################################
@@ -245,7 +245,7 @@ proj4string(meuse) <- CRS(proj4string(meuse.grid))
 ###################################################
 library(gstat)
 log_zinc <- krige(log(zinc)~1, meuse, meuse.grid)["var1.pred"]
-proj4string(log_zinc) <- CRS(proj4string(meuse.grid))
+proj4string(log_zinc) <- slot(meuse.grid, "proj4string")
 summary(log_zinc)
 
 
@@ -267,7 +267,7 @@ GDALinfo("log_zinc.tif")
 ###################################################
 library(maptools)
 grd <- as(meuse.grid, "SpatialPolygons")
-proj4string(grd) <- CRS(proj4string(meuse))
+proj4string(grd) <- slot(meuse, "proj4string")
 gpclibPermit()
 require(gpclib)
 grd.union <- unionSpatialPolygons(grd, rep("x", length(slot(grd, "polygons"))))
@@ -285,7 +285,7 @@ if (packageVersion("sp") < "1.1.0") {
   llGRD_in <- over(llGRD$SG, grd.union.ll)
 }
 llSGDF <- SpatialGridDataFrame(grid=slot(llGRD$SG, "grid"),
- proj4string=CRS(proj4string(llGRD$SG)), data=data.frame(in0=llGRD_in))
+ proj4string=slot(llGRD$SG, "proj4string"), data=data.frame(in0=llGRD_in))
 llSPix <- as(llSGDF, "SpatialPixelsDataFrame")
 
 
@@ -321,7 +321,7 @@ names(sohoSG) <- c("snowcost_broad", "snowcost_not_broad")
 ### chunk number 57: 
 ###################################################
 deaths <- readOGR(".", "deaths")
-proj4string(sohoSG) <- CRS(proj4string(deaths))
+proj4string(sohoSG) <- slot(deaths, "proj4string")
 if (packageVersion("sp") < "1.1.0") {
   o <- overlay(sohoSG, deaths)
 } else {
