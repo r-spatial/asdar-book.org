@@ -37,6 +37,8 @@ the code chunk at the foot of the page should read:
 ```
 
 ## cm2
+Page 135: From GEOS 3.9.0 with Overlay-NG, the same slivers are found, but their order differs.
+
 Page 147: R >= 3.6 uses a different default sampler giving for the same seed 991 instead of 979 and 999 for 1003 output counts. The tabulation on page 148 is also changed, with max. grid_regular becoming 77.
 
 Section 5.3.3, foot of page 147, code chunk 72, tabulation of five number summaries. Because over() now returns a data frame, the coordinates method fails for extracting the number of data objects returned; corrected in cm2_mod.R.
