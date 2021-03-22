@@ -12,6 +12,7 @@ rm(list=ls())
 if ((site <- Sys.getenv("ASDAR_DOWNLOAD")) != "") {
   download.file(paste(site, "70042108.zip", sep="/"), "70042108.zip")
   download.file(paste(site, "snow_files.zip", sep="/"), "snow_files.zip")
+  download.file(paste(site, "scot.zip", sep="/"), "scot.zip")
 }
 
 
@@ -104,12 +105,12 @@ c(as(IJ_east, "numeric"), as(IJ_north, "numeric"))
 ###################################################
 ### chunk number 21: 
 ###################################################
-download.file("http://web1.sph.emory.edu/users/lwaller/book/ch9/scot.shp", "scot.shp", mode="wb")
+#download.file("http://web1.sph.emory.edu/users/lwaller/book/ch9/scot.shp", "scot.shp", mode="wb")
 #download.file("http://www.sph.emory.edu/~lwaller/book/ch9/scot.shp", "scot.shp", mode="wb")
-download.file("http://web1.sph.emory.edu/users/lwaller/book/ch9/scot.dbf", "scot.dbf", mode="wb")
-download.file("http://web1.sph.emory.edu/users/lwaller/book/ch9/scot.shx", "scot.shx", mode="wb")
-download.file("http://web1.sph.emory.edu/users/lwaller/book/ch2/scotland.dat", "scotland.dat", mode="w")
-
+#download.file("http://web1.sph.emory.edu/users/lwaller/book/ch9/scot.dbf", "scot.dbf", mode="wb")
+#download.file("http://web1.sph.emory.edu/users/lwaller/book/ch9/scot.shx", "scot.shx", mode="wb")
+#download.file("http://web1.sph.emory.edu/users/lwaller/book/ch2/scotland.dat", "scotland.dat", mode="w")
+fname <- unzip(zipfile = "scot.zip")
 
 ###################################################
 ### chunk number 22: 
