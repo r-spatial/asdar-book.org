@@ -12,7 +12,7 @@ library(rgdal)
 ###################################################
 # From PROJ 6.0.0, EPSG data stored in an SQLite database without proj4 strings
 EPSG <- try(make_EPSG())
-if (class(EPSG) != "try-error") EPSG[grep("ED50$", EPSG$note),]
+if (class(EPSG) != "try-error") EPSG[grep("^# ED50$", EPSG$note),]
 
 
 ###################################################
@@ -322,10 +322,10 @@ CT[CT > "#000000"]
 data(meuse.grid)
 coordinates(meuse.grid) <- c("x", "y")
 gridded(meuse.grid) <- TRUE
-proj4string(meuse.grid) <- CRS("+init=epsg:28992")
+slot(meuse.grid, "proj4string") <- CRS("+init=epsg:28992")
 data(meuse)
 coordinates(meuse) <- c("x", "y")
-proj4string(meuse) <- CRS(proj4string(meuse.grid))
+slot(meuse, "proj4string") <- slot(meuse.grid, "proj4string")
 
 
 ###################################################
