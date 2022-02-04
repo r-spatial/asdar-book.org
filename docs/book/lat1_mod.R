@@ -388,7 +388,7 @@ set.seed(987654)
 n <- length(Sy0_nb)
 uncorr_x <- rnorm(n)
 rho <- 0.5
-autocorr_x <- invIrW(Sy0_lw_W, rho) %*% uncorr_x
+autocorr_x <- spatialreg::invIrW(Sy0_lw_W, rho) %*% uncorr_x
 
 
 ###################################################

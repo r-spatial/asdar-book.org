@@ -73,6 +73,7 @@ lm.morantest(nylm, NYlistw)
 ###################################################
 ### chunk number 13: 
 ###################################################
+library(spatialreg)
 nysar<-spautolm(Z~PEXPOSURE+PCTAGE65P+PCTOWNHOME , data=NY8, listw=NYlistw)
 summary(nysar)
 
@@ -219,7 +220,7 @@ printCoefmat(tres)
 ###################################################
 nylag <- lagsarlm(Z~PEXPOSURE+PCTAGE65P+PCTOWNHOME, data=NY8, listw=NYlistwW)
 summary(nylag)
-bptest.sarlm(nylag)
+bptest.Sarlm(nylag)
 
 
 ###################################################
@@ -228,7 +229,7 @@ bptest.sarlm(nylag)
 nymix <- lagsarlm(Z~PEXPOSURE+PCTAGE65P+PCTOWNHOME, data=NY8, listw=NYlistwW, type="mixed")
 nymix
 #anova(nymix, nylag)
-LR.sarlm(nymix, nylag)
+LR.Sarlm(nymix, nylag)
 
 ###################################################
 ### chunk number 36: 
@@ -268,7 +269,7 @@ lseq <- seq(0, 0.4, 0.01)
 s2seq <- seq(0.3, 0.55, 0.01)
 lsseq <- as.matrix(expand.grid(lseq, s2seq))
 res <- numeric(nrow(lsseq))
-for (i in seq(along=res)) res[i] <- spdep:::.kpgm(lsseq[i,,drop=TRUE], v=vv, verbose=TRUE)
+for (i in seq(along=res)) res[i] <- spatialreg:::.kpgm(lsseq[i,,drop=TRUE], v=vv, verbose=TRUE)
 SGDF <- SpatialPixelsDataFrame(lsseq, data=data.frame(fn=res))
 fullgrid(SGDF) <- TRUE
 

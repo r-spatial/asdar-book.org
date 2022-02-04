@@ -163,7 +163,7 @@ set.seed(987654)
 n <- length(Sy0_nb)
 uncorr_x <- rnorm(n)
 rho <- 0.5
-autocorr_x <- invIrW(Sy0_lw_W, rho) %*% uncorr_x
+autocorr_x <- spatialreg::invIrW(Sy0_lw_W, rho) %*% uncorr_x
 
 
 ###################################################
@@ -436,6 +436,7 @@ lm.morantest(nylm, NYlistw)
 ### code chunk number 65: lat.Rnw:2155-2158
 ###################################################
 NYlistwW <- nb2listw(NY_nb, style = "W")
+library(spatialreg)
 aple(residuals(nylm), listw=NYlistwW)
 spautolm(Z~PEXPOSURE+PCTAGE65P+PCTOWNHOME, data=NY8, listw=NYlistwW)$lambda
 
@@ -451,7 +452,7 @@ summary(nysar)
 ### code chunk number 67: lat.Rnw:2281-2283
 ###################################################
 nylam1 <- c(nysar$lambda)
-nylam2 <- c(LR1.spautolm(nysar)$p.value)
+nylam2 <- c(LR1.Spautolm(nysar)$p.value)
 
 
 ###################################################
@@ -607,7 +608,7 @@ printCoefmat(tres)
 ###################################################
 nylag <- lagsarlm(Z~PEXPOSURE+PCTAGE65P+PCTOWNHOME, data=NY8, listw=NYlistwW)
 summary(nylag)
-bptest.sarlm(nylag)
+bptest.Sarlm(nylag)
 
 
 ###################################################
@@ -629,7 +630,7 @@ c(McRes$beta, rho=McRes$rho, sig2=McRes$sig2)
 nymix <- lagsarlm(Z~PEXPOSURE+PCTAGE65P+PCTOWNHOME, data=NY8, listw=NYlistwW, type="mixed")
 nymix
 #anova(nymix, nylag)
-LR.sarlm(nymix, nylag)
+LR.Sarlm(nymix, nylag)
 
 
 ###################################################
@@ -657,7 +658,7 @@ HPDinterval(imps, choice="total")
 ###################################################
 nyerr <- errorsarlm(Z~PEXPOSURE+PCTAGE65P+PCTOWNHOME, data=NY8, listw=NYlistwW)
 summary(nyerr)
-LR.sarlm(nyerr, nymix)
+LR.Sarlm(nyerr, nymix)
 
 
 ###################################################
