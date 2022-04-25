@@ -59,6 +59,9 @@ Page 265: Chunk 65: boot must now be loaded explicitly.
 Page 269: The sentence introducing local Moran's I is potentially misleading; the formula is given after Lloyd (2007) p. 67, eq. 4.16, originally from Anselin (1995) p. 99, eq. 12 [Anselin, L. 1995. Local indicators of spatial association, Geographical Analysis, 27, 93-115], and Getis and Ord (1996) p. 267-268, eq. 14.4 [Getis, A. and Ord, J. K. 1996 Local spatial statistics: an overview. In P. Longley and M. Batty (eds) Spatial analysis: modelling in a GIS environment (Cambridge: Geoinformation International), 261-277]. The "sum" referred to is the sum of the calculated values of local Moran's divided by the sum of the weights [for example using Szero() on the listw object].
 ## lat2
 Page 297, 299: For mgcv version 1.5-2 only, Spatial\*DataFrame objects cannot be used as values for the gam() data= argument - coerce to data.frame first.
+
+Page 301: From nlme 3.1-157, offset terms are no longer accepted, so the example cannot be reproduced as it was previously, chunks 54-55.
+
 Page 304: seed and alpha= values differ from book (no seed); alpha= was 0.4 for R < 3.6, from R >= 3.6 changes in sample() make change to alpha 0.44 necessary to extract at least two eigenvectors.
 
 From **spdep** 1.1-1, functions for fitting models are moved to the new package **spatialreg**, and changes are made to adapt. Present changes pass most deprecated **spdep** functions through to **spatialreg**.

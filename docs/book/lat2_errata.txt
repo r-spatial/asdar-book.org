@@ -1,4 +1,5 @@
 Page 297, 299: For mgcv version 1.5-2 only, Spatial*DataFrame objects cannot be used as values for the gam() data= argument - coerce to data.frame first.
 
-Page 304: seed and alpha= values differ from book (no seed); alpha= was 0.4 for R < 3.6, from R >= 3.6 changes in sample() make change to alpha 0.44 necessary to extract at least two eigenvectors.
+Page 301: From nlme 3.1-157, offset terms are no longer accepted, so the example cannot be reproduced as it was previously, chunks 54-55.
 
+Page 304: seed and alpha= values differ from book (no seed); alpha= was 0.4 for R < 3.6, from R >= 3.6 changes in sample() make change to alpha 0.44 necessary to extract at least two eigenvectors.

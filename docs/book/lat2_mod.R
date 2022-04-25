@@ -350,16 +350,18 @@ nylam1 <- c(summary(nyGAMp)$edf)
 ###################################################
 ### chunk number 54:  
 ###################################################
-library(MASS)
-attach(as(NY8, "data.frame"))
-nyGLMMp <- glmmPQL(Cases~PEXPOSURE+PCTAGE65P+PCTOWNHOME+offset(log(POP8)), data=NY8, family=poisson, random=~1|AREAKEY, correlation=scor)
-detach("as(NY8, \"data.frame\")")
+#library(MASS)
+#attach(as(NY8, "data.frame"))
+#nyGLMMp <- glmmPQL(Cases~PEXPOSURE+PCTAGE65P+PCTOWNHOME+offset(log(POP8)), data=NY8, family=poisson, random=~1|AREAKEY, correlation=scor)
+# Error in lme.formula(fixed = zz ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME +  : 
+#  offset() terms are not supported (nlme 3.1-157 https://svn.r-project.org/R-packages/trunk/nlme/ChangeLog)
+#detach("as(NY8, \"data.frame\")")
 
 
 ###################################################
 ### chunk number 55:  
 ###################################################
-summary(nyGLMMp)
+#summary(nyGLMMp)
 
 
 ###################################################
