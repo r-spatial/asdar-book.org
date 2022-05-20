@@ -67,10 +67,10 @@ symbols(coordinates(deaths), circles=4*sqrt(deaths$Num_Cases),
  inches=FALSE, add=TRUE, bg=c("brown2","grey40")[deaths$b_nearer+1])
 rect(528900, 180550, 529040, 180990, border=NA, col="white")
 text(528970, 180950, "metres from\nBroad Street\npump", cex=0.6)
-library(geoR)
-legend.krige(c(528930, 528960), c(180600, 180900),
- sohoSG$snowcost_broad, vertical=TRUE, breaks=seq(0,750,50),
- col=colorRampPalette(brewer.pal(7, "Reds"))(15))
+#library(geoR)
+#legend.krige(c(528930, 528960), c(180600, 180900),
+# sohoSG$snowcost_broad, vertical=TRUE, breaks=seq(0,750,50),
+# col=colorRampPalette(brewer.pal(7, "Reds"))(15))
 plot(nb_pump, add=TRUE, pch=8, cex=1.3, lwd=2)
 plot(b_pump, add=TRUE, pch=4, cex=1.5, lwd=8, col="white")
 plot(b_pump, add=TRUE, pch=4, cex=1.5, lwd=6)

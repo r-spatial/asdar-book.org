@@ -36,6 +36,8 @@ the code chunk at the foot of the page should read:
 > SGDF <- SpatialGridDataFrame(GRD, proj4string=crs, data=data.frame(o=o))
 ```
 
+Page 121: drop legend as geoR unavailable (May 2022).
+
 ## cm2
 Page 135: From GEOS 3.9.0 with Overlay-NG, the same slivers are found, but their order differs.
 
@@ -72,6 +74,8 @@ Pages 244-245, section 8.5.10, chunk 85: Starting with gstat 1.1-0, the option t
 Page 245: Minor change in prediction variance values following the change to BLAS/LAPACK from Meschach linear algebra functions in gstat 1.1-0.
 
 Page 247-248, sections 8.7.1/2: changes in sample() from R >= 3.6.0 change the model training and validation sets and R2 measure; the cross-validation score summary is also changed.
+
+Page 260: drop as geoR unavailable (May 2022).
 
 ## lat
 

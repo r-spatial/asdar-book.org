@@ -871,8 +871,8 @@ par(mar = omar)
 ###################################################
 ### code chunk number 121: geos.Rnw:3270-3272 
 ###################################################
-library(geoR)
-plot(variog(as.geodata(meuse["zinc"]), max.dist=1500))
+#library(geoR)
+#plot(variog(as.geodata(meuse["zinc"]), max.dist=1500))
 
 
 ###################################################
