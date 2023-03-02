@@ -290,15 +290,16 @@ stplot(as(Fires2, "STI"), number=3, sp.layout=spl, cex=0.5)
 names(Fires1)[1] <- "name"
 GR_Fires <- Fires1[Fires1$Country == "GR",]
 #writeOGR(GR_Fires, "EFFIS.gpx", "waypoints", driver="GPX", dataset_options="GPX_USE_EXTENSIONS=YES", overwrite_layer=TRUE, delete_dsn=TRUE)
-st_write(st_as_sf(GR_Fires), dsn="EFFIS.gpx", layer="waypoints", driver="GPX", dataset_options="GPX_USE_EXTENSIONS=YES", delete_layer=TRUE, delete_dsn=TRUE)
+#st_write(st_as_sf(GR_Fires), dsn="EFFIS.gpx", layer="waypoints", driver="GPX", dataset_options="GPX_USE_EXTENSIONS=YES", delete_layer=TRUE, delete_dsn=TRUE)
+# GDAL >= 3.6 GPX driver changes 
 
 ###################################################
 ### code chunk number 61: die.Rnw:1071-1073
 ###################################################
 #GR <- readOGR("EFFIS.gpx", "waypoints")
-GR <- as(st_read("EFFIS.gpx", "waypoints"), "Spatial")
-GR[1,c(5,24:28)]
-base::print(GR[1,c(5,24:28)])
+#GR <- as(st_read("EFFIS.gpx", "waypoints"), "Spatial")
+#GR[1,c(5,24:28)]
+#base::print(GR[1,c(5,24:28)])
 
 ###################################################
 ### code chunk number 63: die.Rnw:1107-1108
