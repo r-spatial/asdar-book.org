@@ -154,7 +154,7 @@ yrs = 1970:1986
 time = as.POSIXct(paste(yrs, "-01-01", sep=""), tz = "GMT")
 library(plm)
 data("Produc")
-Produc.st = STFDF(states[-8], time, Produc[order(Produc[2], Produc[1]),])
+Produc.st = STFDF(states[-8], time, Produc[order(Produc[,2], Produc[,1]),])
 print(stplot(Produc.st[1:2,,5:8], mode = "tp", key.space = "bottom"),
 	more = TRUE, split = c(1,1,2,1))
 print(stplot(Produc.st[c(1:3,5),,5:6], mode = "ts", key.space = "bottom"),
