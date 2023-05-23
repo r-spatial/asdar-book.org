@@ -275,16 +275,17 @@ proj4string(turtle_sp) <- CRS("+proj=longlat +ellps=WGS84")
 ###################################################
 ### code chunk number 55: cm.Rnw:1031-1034
 ###################################################
-library(maptools)
-gshhs.c.b <- system.file("share/gshhs_c.b", package="maptools")
-pac <- Rgshhs(gshhs.c.b, level=1, xlim=c(130,250), ylim=c(15,60), verbose=FALSE)
+#library(maptools)
+#gshhs.c.b <- system.file("share/gshhs_c.b", package="maptools")
+#pac <- Rgshhs(gshhs.c.b, level=1, xlim=c(130,250), ylim=c(15,60), verbose=FALSE)
 
 
 ###################################################
 ### code chunk number 56: cm.Rnw:1039-1051
 ###################################################
-plot(pac$SP, axes=TRUE, col="khaki2", xaxs="i", yaxs="i")
-plot(turtle_sp, add=TRUE)
+#plot(pac$SP, axes=TRUE, col="khaki2", xaxs="i", yaxs="i")
+#plot(turtle_sp, add=TRUE)
+plot(turtle_sp, axes=TRUE)
 m_rle <- rle(months(turtle_sp$timestamp))
 clen <- cumsum(m_rle$lengths[-length(m_rle$lengths)])-1
 crds <- coordinates(turtle_sp)

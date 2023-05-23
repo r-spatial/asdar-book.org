@@ -236,8 +236,8 @@ table(table(paste(nc90$ST, nc90$CO, sep="")))
 ###################################################
 ### chunk number 27: 
 ###################################################
-gpclibPermit()
-require(gpclib)
+#gpclibPermit()
+#require(gpclib)
 nc90a <- unionSpatialPolygons(nc90, IDs=paste(nc90$ST, nc90$CO, sep=""))
 
 
