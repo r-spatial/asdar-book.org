@@ -14,14 +14,18 @@ rm(list=ls())
 ###################################################
 ### chunk number 7: 
 ###################################################
-library(maptools)
+#library(maptools)
 library(spdep)
+library(sp)
 
 #Load data
-nc_file <- system.file("shapes/sids.shp", package="spData")[1]
-llCRS <- CRS("+proj=longlat +datum=NAD27")
-nc <- readShapePoly(nc_file, ID="FIPSNO", proj4string=llCRS)
-rn <- sapply(slot(nc, "polygons"), function(x) slot(x, "ID"))
+#nc_file <- system.file("shapes/sids.shp", package="spData")[1]
+nc_file <- system.file("shapes/sids.gpkg", package="spData")[1]
+#llCRS <- CRS("+proj=longlat +datum=NAD27")
+#nc <- readShapePoly(nc_file, ID="FIPSNO", proj4string=llCRS)
+nc <- as(sf::st_read(nc_file), "Spatial")
+#rn <- sapply(slot(nc, "polygons"), function(x) slot(x, "ID"))
+rn <- as.character(nc$FIPSNO)
 gal_file <- system.file("weights/ncCR85.gal", package="spData")[1]
 ncCR85 <- read.gal(gal_file, region.id=rn)
 
