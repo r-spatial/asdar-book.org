@@ -61,6 +61,8 @@ Page 186: Changes in spatstat::bw.diggle() between versions 1.41-1 and 1.42-1 ap
 
 Page 228: Minor changes in fitted variogram values following the change to BLAS/LAPACK from Meschach linear algebra functions in gstat 1.1-0.
 
+Page 229: The lower equation for the cross variogram for non collocated data (Z_j(s) - m_j) should include h: (Z_j(s+h) - m_j); thanks to Matthieu Gousseff, #6.
+
 Page 236: Following the change to BLAS/LAPACK from Meschach linear algebra functions in gstat 1.1-0, the poor matrix condition check example in chunk 61 should be omitted. The Choleski decomposition used from gstat 1.1-0 on indicates that the resulting covariance matrix is not positive definite, and generates missing values.
 
 Page 241: Minor change in prediction variance values following the change to BLAS/LAPACK from Meschach linear algebra functions in gstat 1.1-0.
